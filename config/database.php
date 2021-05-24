@@ -69,11 +69,9 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
             'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'user' => $DATABASE_URL["users"],
+            'animal' => $DATABASE_URL["animals"],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
