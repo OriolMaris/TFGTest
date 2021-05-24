@@ -70,8 +70,6 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'database' => ltrim($DATABASE_URL["path"], "/"),
-            'user' => $DATABASE_URL["users"],
-            'animal' => $DATABASE_URL["animals"],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
