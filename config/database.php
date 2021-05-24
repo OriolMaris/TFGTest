@@ -69,11 +69,13 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'database' => ltrim($DATABASE_URL["path"], "/"),
+            'database' => env('DB_DATABASE', 'dbXXXXXXXXXXXX'),
+            'username' => env('DB_USERNAME', 'XXXXXXXXXXXXXX'),
+            'password' => env('DB_PASSWORD', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
-            'sslmode' => 'require',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
