@@ -23,7 +23,7 @@ class CreateAnimalsTable extends Migration
             $table->string('photo_name');
             // taula del caracter del animal
             // taula vacunes del animal
-
+            $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

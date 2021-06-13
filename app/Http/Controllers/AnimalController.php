@@ -107,4 +107,6 @@ class AnimalController extends Controller
         //
         return Animal::where('name', 'like', 'cannine')->get();
     }
+
+    
 }

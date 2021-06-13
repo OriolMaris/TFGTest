@@ -15,6 +15,7 @@ class Animal extends Model
         'sexe',
         'race',
         'species',
+        'owner_id'
     ];
 
 }
