@@ -71,9 +71,9 @@ class UserController extends Controller
         ];
     }
 
-    public function favAnimals(){
-        return [
-            'message' => 'fav animals'
-        ];
+    public function favAnimals($user_id){
+
+        $user = User::find($user_id);
+        return $user->fav_animals;
     }
 }
