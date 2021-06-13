@@ -80,7 +80,7 @@ class UserController extends Controller
     public function AddfavAnimals($user_id, $animal_id){
 
         $user = User::find($user_id);
-        $user->fav_animals = $user->fav_animals + $animal_id
+        $user->fav_animals = $user->fav_animals + $animal_id;
         $user->save(); 
 
         return $user;
