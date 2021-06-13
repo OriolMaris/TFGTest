@@ -31,6 +31,7 @@ class AnimalController extends Controller
             'name' => 'required',
             'age' => 'required',
             'sexe' => 'required',
+            'owner_id' => 'required',
         ]);
         
         $animal = new Animal();
@@ -39,6 +40,7 @@ class AnimalController extends Controller
         $animal->sexe = $request->sexe;
         $animal->race = $request->race;
         $animal->species = $request->species;
+        $animal->owner_id = $request->owner_id;
 
         $request->photo_name->store('public/uploads');
         $file_name = $request->photo_name->hashName();
@@ -108,5 +110,5 @@ class AnimalController extends Controller
         return Animal::where('name', 'like', 'cannine')->get();
     }
 
-    
+
 }
