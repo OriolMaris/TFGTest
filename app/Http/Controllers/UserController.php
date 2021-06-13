@@ -76,4 +76,13 @@ class UserController extends Controller
         $user = User::find($user_id);
         return $user->fav_animals;
     }
+
+    public function AddfavAnimals($user_id, $animal_id){
+
+        $user = User::find($user_id);
+        $user->fav_animals = $user->fav_animals + ';' + $animal_id
+        $user->save(); 
+
+        return $user;
+    }
 }

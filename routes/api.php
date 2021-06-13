@@ -60,4 +60,5 @@ Route::get('/animals/dogs', [AnimalController::class, 'dogs']);
 Route::get('/animals/{user_id}/owner', [AnimalController::class, 'owner']); 
 
 
-Route::get('/users/{user_id}/fav', [UserController::class, 'favAnimals']); 
+Route::get('/users/{user_id}/fav', [UserController::class, 'favAnimals']);
+Route::post('/users/{user_id}/fav/{animal_id}', [UserController::class, 'AddfavAnimals']); 
