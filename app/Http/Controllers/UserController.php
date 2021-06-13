@@ -70,4 +70,10 @@ class UserController extends Controller
             'message' => 'Logged out'
         ];
     }
+
+    public function favAnimals(){
+        return [
+            'message' => 'fav animals'
+        ];
+    }
 }
