@@ -54,5 +54,5 @@ Route::get('/upload/{photo}', [PhotoController::class, 'show']);
 Route::delete('/upload/{id}', [PhotoController::class, 'destroy']);
 Route::get('/upload/animal/{id}', [PhotoController::class, 'search']);
 
-Route::post('/animals/dog', [DogController::class, 'store']); 
-Route::get('/animals/dog', [DogController::class, 'index']); 
+Route::get('/animals/cats', [AnimalController::class, 'cats']); 
+Route::get('/animals/dogs', [AnimalController::class, 'dogs']); 

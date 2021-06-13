@@ -58,6 +58,8 @@ class AnimalController extends Controller
     public function show($id)
     {
         //
+        $animal = Animal::find($id);
+        return $animal;
     }
 
     /**
@@ -94,9 +96,15 @@ class AnimalController extends Controller
      * @param  str  $race
      * @return \Illuminate\Http\Response
      */
-    public function search($race)
+    public function cats()
     {
         //
-        return Animal::where('name', 'like', '%'.$race.'%')->get();
+        return Animal::where('species', 'like', 'feline')->get();
+    }
+
+    public function dogs()
+    {
+        //
+        return Animal::where('name', 'like', 'cannine')->get();
     }
 }
