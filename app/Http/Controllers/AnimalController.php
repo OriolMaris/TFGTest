@@ -110,5 +110,11 @@ class AnimalController extends Controller
         return Animal::where('name', 'like', 'cannine')->get();
     }
 
+    public function owner($owner_id)
+    {
+        //
+        return Animal::where('owner_id', 'like', '%'.$owner_id.'%')->get();
+    }
+
 
 }

@@ -56,3 +56,5 @@ Route::get('/upload/animal/{id}', [PhotoController::class, 'search']);
 
 Route::get('/animals/cats', [AnimalController::class, 'cats']); 
 Route::get('/animals/dogs', [AnimalController::class, 'dogs']); 
+
+Route::get('/animals/{user_id}/owner', [AnimalController::class, 'owner']); 
