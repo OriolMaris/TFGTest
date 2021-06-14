@@ -12,19 +12,10 @@ class Animal extends Model
     protected $fillable = [
         'name',
         'age',
+        'sexe',
         'race',
         'species',
-        'genere',
-        'size',
-        'castrat',
-        'caracter',
-        'hair_type',
-        'description',
-        'microxip',
-        'vacunated',
-        'owner_id',
-        'esterizated',
-        'photo_name'
+        'owner_id'
     ];
 
 }

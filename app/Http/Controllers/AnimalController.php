@@ -37,9 +37,10 @@ class AnimalController extends Controller
         $animal = new Animal();
         $animal->name = $request->name;
         $animal->age = $request->age;
-        $animal->genere = $request->genere;
+        $animal->sexe = $request->sexe;
         $animal->race = $request->race;
         $animal->species = $request->species;
+        $animal->owner_id = $request->owner_id;
         //$animal->caracter = $request->caracter;
         //$animal->hair_type = $request->hair_type; 
         //$animal->photo_name = $request->photo_name;
@@ -47,7 +48,6 @@ class AnimalController extends Controller
         //$animal->ciutat = $request->ciutat;
         //$animal->size = $request->size;
         //$animal->description = $request->description;
-        $animal->owner_id = $request->owner_id;
         //$animal->microxip = $request->microxip;
         //$animal->vacunated = $request->vacunated;
         //$animal->esterizated = $request->esterizated;
