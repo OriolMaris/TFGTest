@@ -15,7 +15,17 @@ class Animal extends Model
         'sexe',
         'race',
         'species',
-        'owner_id'
+        'owner_id',
+        'caracter',
+        'hair_type',
+        'castrat',
+        'ciutat',
+        'size',
+        'description',
+        'microxip',
+        'vacunated',
+        'esterizated',
+        'photo_name'
     ];
 
 }

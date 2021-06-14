@@ -24,6 +24,17 @@ class CreateAnimalsTable extends Migration
             // taula del caracter del animal
             // taula vacunes del animal
             $table->unsignedBigInteger('owner_id');
+
+            $table->string('caracter');
+            $table->string('hair_type')->nullable();
+            $table->string('castrat');
+            $table->string('ciutat');
+            $table->string('size');
+            $table->string('description')->nullable();
+            $table->string('microxip');
+            $table->string('vacunated');
+            $table->string('esterizated');
+
             $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
 

@@ -31,7 +31,18 @@ class AnimalController extends Controller
             'name' => 'required',
             'age' => 'required',
             'sexe' => 'required',
+            'race' => 'required',
+            'species' => 'required',
             'owner_id' => 'required',
+            'caracter' => 'required',
+            'hair_type' => 'required',
+            'castrat' => 'required',
+            'ciutat' => 'required',
+            'size' => 'required',
+            'description' => 'required',
+            'microxip' => 'required',
+            'vacunated' => 'required',
+            'esterizated' => 'required',
         ]);
         
         $animal = new Animal();
@@ -41,16 +52,15 @@ class AnimalController extends Controller
         $animal->race = $request->race;
         $animal->species = $request->species;
         $animal->owner_id = $request->owner_id;
-        //$animal->caracter = $request->caracter;
-        //$animal->hair_type = $request->hair_type; 
-        //$animal->photo_name = $request->photo_name;
-        //$animal->castrat = $request->castrat;
-        //$animal->ciutat = $request->ciutat;
-        //$animal->size = $request->size;
-        //$animal->description = $request->description;
-        //$animal->microxip = $request->microxip;
-        //$animal->vacunated = $request->vacunated;
-        //$animal->esterizated = $request->esterizated;
+        $animal->caracter = $request->caracter;
+        $animal->hair_type = $request->hair_type; 
+        $animal->castrat = $request->castrat;
+        $animal->ciutat = $request->ciutat;
+        $animal->size = $request->size;
+        $animal->description = $request->description;
+        $animal->microxip = $request->microxip;
+        $animal->vacunated = $request->vacunated;
+        $animal->esterizated = $request->esterizated;
 
         $request->photo_name->store('public/uploads');
         $file_name = $request->photo_name->hashName();
