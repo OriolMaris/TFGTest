@@ -27,13 +27,13 @@ class CreateAnimalsTable extends Migration
 
             $table->string('caracter');
             $table->string('hair_type')->nullable();
-            $table->string('castrat');
+            $table->boolean('castrat')->default(0);
             $table->string('ciutat');
             $table->string('size');
             $table->string('description')->nullable();
-            $table->string('microxip');
-            $table->string('vacunated');
-            $table->string('esterizated');
+            $table->boolean('microxip')->default(0);
+            $table->boolean('vacunated')->default(0);
+            $table->boolean('esterizated')->default(0);
 
             $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
