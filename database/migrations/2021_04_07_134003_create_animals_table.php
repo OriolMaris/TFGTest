@@ -28,10 +28,10 @@ class CreateAnimalsTable extends Migration
             $table->string('description')->nullable();
 
             $table->unsignedBigInteger('owner_id');
-            $table->boolean('castrat')->default(0)->nullable();
-            $table->boolean('microxip')->default(0)->nullable();
-            $table->boolean('vacunated')->default(0)->nullable();
-            $table->boolean('esterizated')->default(0)->nullable();
+            $table->string('castrat')->nullable();
+            $table->string('microxip')->nullable();
+            $table->string('vacunated')->nullable();
+            $table->string('esterizated')->nullable();
 
             $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
