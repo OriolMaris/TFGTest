@@ -40,7 +40,17 @@ class AnimalController extends Controller
         $animal->genere = $request->genere;
         $animal->race = $request->race;
         $animal->species = $request->species;
+        $animal->caracter = $request->caracter;
+        $animal->hair_type = $request->hair_type; 
+        $animal->photo_name = $request->photo_name;
+        $animal->castrat = $request->castrat;
+        $animal->ciutat = $request->ciutat;
+        $animal->size = $request->size;
+        $animal->description = $request->description;
         $animal->owner_id = $request->owner_id;
+        $animal->microxip = $request->microxip;
+        $animal->vacunated = $request->vacunated;
+        $animal->esterizated = $request->esterizated;
 
         $request->photo_name->store('public/uploads');
         $file_name = $request->photo_name->hashName();
