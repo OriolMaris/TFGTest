@@ -48,4 +48,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+        /**
+     * Get the the followers.
+    */
+    public function favourites()
+    {
+        return $this->hasMany('App\Favourites', 'user_id', 'id');
+    }
 }
