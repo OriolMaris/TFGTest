@@ -19,19 +19,19 @@ class CreateAnimalsTable extends Migration
             $table->string('age');
             $table->string('genere');
             $table->string('race')->nullable();            
-            $table->string('species');
-            $table->string('caracter');
-            $table->string('hair_type');
-            $table->string('photo_name');
-            $table->string('ciutat');
-            $table->string('size');
-            $table->string('description');
+            $table->string('species')->nullable();
+            $table->string('caracter')->nullable();
+            $table->string('hair_type')->nullable();
+            $table->string('photo_name')->nullable();
+            $table->string('ciutat')->nullable();
+            $table->string('size')->nullable();
+            $table->string('description')->nullable();
 
             $table->unsignedBigInteger('owner_id');
-            $table->boolean('castrat')->default(0);
-            $table->boolean('microxip')->default(0);
-            $table->boolean('vacunated')->default(0);
-            $table->boolean('esterizated')->default(0);
+            $table->boolean('castrat')->default(0)->nullable();
+            $table->boolean('microxip')->default(0)->nullable();
+            $table->boolean('vacunated')->default(0)->nullable();
+            $table->boolean('esterizated')->default(0)->nullable();
 
             $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
