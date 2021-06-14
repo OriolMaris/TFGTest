@@ -32,7 +32,7 @@ class UserController extends Controller
             'Lang' => $request->telefon,
             'habitatje' => $request->habitatje,
             'h_dispo' => $request->h_dispo,
-
+            'caracter' => $request->caracter,
         ]);
 
         $token = $user->createToken('myappToken')->plainTextToken;

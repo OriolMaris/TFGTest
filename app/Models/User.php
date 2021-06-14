@@ -26,6 +26,7 @@ class User extends Authenticatable
         'Lang',
         'habitatje',
         'h_dispo',
+        'caracter'
     ];
 
 

@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('Lang');
             $table->string('habitatje')->nullable();
             $table->string('h_dispo')->nullable();
+            $table->string('caracter')->nullable();
+
             
             $table->rememberToken();
             $table->timestamps();
