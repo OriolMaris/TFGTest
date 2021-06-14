@@ -29,7 +29,7 @@ class UserController extends Controller
             'password' => bcrypt($fileds['password']),
             'telefon' => $fileds['telefon'],
             'edat' => $request->edat,
-            'Lang' => $fileds['telefon'],
+            'Lang' => $fileds['Lang'],
             'habitatje' => $request->habitatje,
             'h_dispo' => $request->h_dispo,
             'caracter' => $request->caracter,
