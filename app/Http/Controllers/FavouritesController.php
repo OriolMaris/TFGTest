@@ -19,9 +19,14 @@ class FavouritesController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([]);
+        $request->validate([
+            'user_id' => 'required',
+            'animal_id' => 'required'
+        ]);
         
         $favourites = new Favourites();
+        $favourites->user_id = $request->user_id;
+        $favourites->animal_id = $request->animal_id;
         $favourites->save(); 
 
         return $favourites;
