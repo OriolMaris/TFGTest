@@ -23,12 +23,12 @@ class CreateAnimalsTable extends Migration
             $table->string('caracter');
             $table->string('hair_type');
             $table->string('photo_name');
-            $table->string('castrat');
             $table->string('ciutat');
             $table->string('size');
             $table->string('description');
 
             $table->unsignedBigInteger('owner_id');
+            $table->boolean('castrat')->default(0);
             $table->boolean('microxip')->default(0);
             $table->boolean('vacunated')->default(0);
             $table->boolean('esterizated')->default(0);
