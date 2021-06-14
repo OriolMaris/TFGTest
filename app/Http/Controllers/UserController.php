@@ -20,11 +20,18 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'password' => 'required|string|confirmed'
+            'telefon' => 'required|string',
+            'Lang' => 'required|string',
         ]);
         $user = User::create([
             'name' => $fileds['name'],
             'email' => $fileds['email'],
             'password' => bcrypt($fileds['password']),
+            'telefon' => $request->telefon,
+            'edat' => $request->edat,
+            'Lang' => $request->telefon,
+            'habitatje' => $request->habitatje,
+            'h_dispo' => $request->h_dispo,
 
         ]);
 
