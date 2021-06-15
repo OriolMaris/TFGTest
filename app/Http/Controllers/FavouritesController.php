@@ -66,6 +66,7 @@ class FavouritesController extends Controller
                 'microxip' => $animal->microxip,
                 'vacunated' => $animal->vacunated,
                 'esterizated' => $animal->esterizated,
+                'photo_name' => $animal->photo_name,
             ];
         }
         if ($animals !== null) {
