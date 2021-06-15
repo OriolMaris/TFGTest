@@ -14,7 +14,7 @@ class CreateFavouritesTable extends Migration
     public function up()
     {
         Schema::create('favourites', function (Blueprint $table) {
-            $table->string('id')->anullable();
+            $table->string('id')->nullable();
             $table->unsignedBigInteger('user_id')->anullable();
             $table->unsignedBigInteger('animal_id')->anullable();
 
