@@ -16,17 +16,12 @@ class FavouritesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($user_id, $animal_id)
     {
-        //
-        $request->validate([
-            'user_id' => 'required',
-            'animal_id' => 'required'
-        ]);
-        
+
         $favourites = new Favourites();
-        $favourites->user_id = $request->user_id;
-        $favourites->animal_id = $request->animal_id;
+        $favourites->user_id = $user_id;
+        $favourites->animal_id = $animal_id;
         $favourites->save(); 
 
         return $favourites;
@@ -45,28 +40,32 @@ class FavouritesController extends Controller
         Animal::destroy($id);
     }
 
-    public function get_favourites($id_user) {
+    public function get_favourites($user_id) {
         $animals = null;
-        foreach (Favourites::where('user_id', $id_user) as $favourite) {
+        error_log($user_id);
+
+        foreach (Favourites::where('user_id', 'like', $user_id)->get() as $favourite) {
+            error_log($favourite);
             $animal = Animal::where('id', $favourite->animal_id)->first();
+            
             
             $animals [] = [
                 'id' => $animal->id,
-                'name' => $animal->name;
-                'age' => $animal->age;
-                'sexe' => $animal->sexe;
-                'race' => $animal->race;
-                'species' => $animal->species;
-                'owner_id' => $animal->owner_id;
-                'caracter' => $animal->caracter;
-                'hair_type' => $animal->hair_type; 
-                'castrat' => $animal->castrat;
-                'ciutat' => $animal->ciutat;
-                'size' => $animal->size;
-                'description' => $animal->description;
-                'microxip' => $animal->microxip;
-                'vacunated' => $animal->vacunated;
-                'esterizated' => $animal->esterizated;
+                'name' => $animal->name,
+                'age' => $animal->age,
+                'sexe' => $animal->sexe,
+                'race' => $animal->race,
+                'species' => $animal->species,
+                'owner_id' => $animal->owner_id,
+                'caracter' => $animal->caracter,
+                'hair_type' => $animal->hair_type,
+                'castrat' => $animal->castrat,
+                'ciutat' => $animal->ciutat,
+                'size' => $animal->size,
+                'description' => $animal->description,
+                'microxip' => $animal->microxip,
+                'vacunated' => $animal->vacunated,
+                'esterizated' => $animal->esterizated,
             ];
         }
         if ($animals !== null) {

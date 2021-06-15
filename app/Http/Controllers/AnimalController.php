@@ -27,6 +27,7 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         //
+        return $request;
         $request->validate([
             'name' => 'required',
             'age' => 'required',
@@ -93,9 +94,11 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $animal = Animal::find($id);
+
+        $animal = Animal::findOrFail($id);
+
         $animal->update($request->all());
+
         return $animal;
     }
 

@@ -14,12 +14,11 @@ class CreateFavouritesTable extends Migration
     public function up()
     {
         Schema::create('favourites', function (Blueprint $table) {
-            $table->id();
 
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('animal_id');
-            
-            $table->primary(['id_follower', 'id_followed']);
+            $table->string('user_id')->anullable();
+            $table->string('animal_id')->anullable();
+
+            $table->primary(['user_id', 'animal_id']);
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('animal_id')->references('id')->on('animals')->onUpdate('cascade')->onDelete('cascade');

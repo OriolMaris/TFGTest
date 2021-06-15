@@ -5,6 +5,7 @@ use App\Http\Controllers\DogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\FavouritesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,8 +33,8 @@ Route::get('/animals/search/{name}', [AnimalController::class, 'search']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Animals
     //Route::post('/animals', [AnimalController::class, 'store']); 
-    Route::put('/animals/{id}', [AnimalController::class, 'update']); 
-    Route::delete('/animals/{id}', [AnimalController::class, 'destroy']); 
+    
+    
     // User
     Route::delete('/logout', [UserController::class, 'logout']); 
 
@@ -47,6 +48,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('/animals', [AnimalController::class, 'store']); 
+Route::put('/animals/{id}', [AnimalController::class, 'update']); 
+Route::delete('/animals/{id}', [AnimalController::class, 'destroy']); 
 
 Route::post('/upload', [PhotoController::class, 'upload']); 
 Route::get('/upload', [PhotoController::class, 'index']);
@@ -60,5 +63,5 @@ Route::get('/animals/dogs', [AnimalController::class, 'dogs']);
 Route::get('/animals/{user_id}/owner', [AnimalController::class, 'owner']); 
 
 
-Route::get('/users/{user_id}/fav', [UserController::class, 'favAnimals']);
-Route::post('/users/{user_id}/fav/{animal_id}', [UserController::class, 'AddfavAnimals']); 
+Route::get('/users/{user_id}/fav', [FavouritesController::class, 'get_favourites']);
+Route::post('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'store']); 
