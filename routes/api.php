@@ -65,3 +65,5 @@ Route::get('/animals/{user_id}/owner', [AnimalController::class, 'owner']);
 
 Route::get('/users/{user_id}/fav', [FavouritesController::class, 'get_favourites']);
 Route::post('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'store']); 
+Route::delete('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'delete']); 
+Route::get('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'isFavourite']); 

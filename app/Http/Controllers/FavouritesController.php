@@ -78,4 +78,23 @@ class FavouritesController extends Controller
     }
 
 
+    public function delete($user_id, $animal_id)
+    {
+
+        $favourites = Favourites::where('user_id', 'like', $user_id)->where('animal_id', 'like', $animal_id)->delete();
+        return $favourites;
+    }
+
+    public function isFavourite($user_id, $animal_id)
+    {
+        $favourites = Favourites::where('user_id', 'like', $user_id)->where('animal_id', 'like', $animal_id)->get()->first();
+        if ($favourites !== null){
+            return response()->json([
+                'message' => true
+            ], 200);
+        }
+        return response()->json([
+            'message' => false
+        ], 400);
+    }
 }
