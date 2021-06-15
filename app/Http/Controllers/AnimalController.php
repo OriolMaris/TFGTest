@@ -129,7 +129,7 @@ class AnimalController extends Controller
     public function dogs()
     {
         //
-        return Animal::where('name', 'like', 'cannine')->get();
+        return Animal::where('species', 'like', 'cannine')->get();
     }
 
     public function owner($owner_id)
