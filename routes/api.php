@@ -49,6 +49,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/animals', [AnimalController::class, 'store']); 
 Route::put('/animals/{id}', [AnimalController::class, 'update']); 
+Route::put('/user/{id}', [UserController::class, 'update']); 
 Route::delete('/animals/{id}', [AnimalController::class, 'destroy']); 
 
 Route::post('/upload', [PhotoController::class, 'upload']); 

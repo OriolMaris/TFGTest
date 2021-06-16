@@ -78,6 +78,16 @@ class UserController extends Controller
         ];
     }
 
+    public function update(Request $request, $id)
+    {
+
+        $animal = User::findOrFail($id);
+
+        $animal->update($request->all());
+
+        return $animal;
+    }
+
     public function favAnimals($user_id){
 
         $user = User::find($user_id);
