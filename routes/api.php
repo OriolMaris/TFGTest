@@ -46,6 +46,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/users/{id}', [UserController::class, 'getUser']); 
 
 Route::post('/animals', [AnimalController::class, 'store']); 
 Route::put('/animals/{id}', [AnimalController::class, 'update']); 
