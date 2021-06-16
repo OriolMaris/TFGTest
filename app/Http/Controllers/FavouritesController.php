@@ -96,6 +96,6 @@ class FavouritesController extends Controller
         }
         return response()->json([
             'message' => false
-        ], 400);
+        ], 200);
     }
 }
