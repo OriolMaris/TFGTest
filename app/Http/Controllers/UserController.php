@@ -102,4 +102,13 @@ class UserController extends Controller
 
         return $user;
     }
+
+    public function getUser($user_id, $animal_id){
+
+        $user = User::find($user_id);
+        return [
+            "name" => $user->name,
+            "tel" => $user->telefon
+        ];
+    }
 }
