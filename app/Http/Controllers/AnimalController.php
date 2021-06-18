@@ -62,7 +62,10 @@ class AnimalController extends Controller
         $animal->vacunated = $request->vacunated;
         $animal->esterizated = $request->esterizated;
 
-        $request->photo_name->store('public/uploads');
+
+        $request->photo_name->store('images', 's3');
+
+        //$request->photo_name->store('public/uploads');
         $file_name = $request->photo_name->hashName();
 
         $animal->photo_name = $file_name;

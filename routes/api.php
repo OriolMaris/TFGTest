@@ -69,3 +69,9 @@ Route::get('/users/{user_id}/fav', [FavouritesController::class, 'get_favourites
 Route::post('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'store']); 
 Route::delete('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'delete']); 
 Route::get('/users/{user_id}/fav/{animal_id}', [FavouritesController::class, 'isFavourite']); 
+
+
+
+///new test 
+Route::post('/upload2', [PhotoController::class, 'upload2']); 
+Route::get('/upload2/{photo}', [PhotoController::class, 'download2']); 

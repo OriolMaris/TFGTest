@@ -5,14 +5,16 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.3.0|^8.0",
+        "ext-pdo_sqlite": "*",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
-        "ext-pdo_sqlite": "*"
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "nao-pon/flysystem-google-drive": "~1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -44,10 +46,8 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ],
-        "post-install-cmd": [ 
-            "ln -sr storage/app/public public/storage" 
         ]
+        
         
     },
     "extra": {

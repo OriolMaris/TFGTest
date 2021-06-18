@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -32,6 +33,39 @@ class PhotoController extends Controller
         $photo->save();
 
         return ["result" => $photo];
+    }
+
+
+    public function upload2(Request $request)
+    {
+        
+        
+        $path = $request->photo->store('images', 's3');
+        $file_name = $request->photo->hashName();
+        $photo = new Photo();
+        $photo->animal_id = $request->animal_id;
+        $photo->photo_path = $file_name;
+        $photo->save();
+        
+
+        return $photo;
+        
+        // if ($request->hasFile('file')) {
+        //     $file = $request->file('file');
+        //     $name = time() . $file->getClientOriginalName();
+        //     $filePath = 'files/' . $name;
+        //     Storage::disk('s3')->put($filePath, file_get_contents($file));
+        // }
+        
+        return back()->withSuccess('File uploaded successfully');
+    }
+
+    public function download2($photo) 
+    {
+        //return ["hello"];
+        return Storage::disk('s3')->download('images/'.$photo);
+        //return response()->download('images/'.$photo, 's3' );
+
     }
 
 
