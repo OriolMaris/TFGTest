@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Animal;
 use Illuminate\Http\Request;
+use App\Models\Favourites;
 
 class AnimalController extends Controller
 {
@@ -113,6 +114,8 @@ class AnimalController extends Controller
     public function destroy($id)
     {
         //
+        $animal = Animal::find($id);
+        Favourites::where('animal_id', 'like', $animal->id)->delete();
         Animal::destroy($id);
     }
 
