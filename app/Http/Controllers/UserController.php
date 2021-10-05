@@ -16,6 +16,9 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
+
+      
+
         $fileds = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
@@ -36,11 +39,14 @@ class UserController extends Controller
         ]);
 
         $token = $user->createToken('myappToken')->plainTextToken;
+        $user->save();
         
+
         $response = [
             'user' => $user,
             'token' => $token
         ];
+        $user->sendEmailVerificationNotification();
 
         return response($response, 201);
     }
@@ -60,6 +66,14 @@ class UserController extends Controller
                 'message' => 'bad creds'
             ], 401);
         }
+
+        if (!$user->hasVerifiedEmail()) {
+            return response([
+                'message' => 'Email not verified'
+            ], 402);
+        }
+
+
         $token = $user->createToken('myappToken')->plainTextToken;
         
         $response = [
@@ -109,6 +123,15 @@ class UserController extends Controller
         return [
             "name" => $user->name,
             "tel" => $user->telefon
+        ];
+    }
+
+
+
+    public function userVerified($user_id){
+        
+        return [
+            "message" => 'user has verified email',
         ];
     }
 }

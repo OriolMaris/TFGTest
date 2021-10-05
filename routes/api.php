@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\FavouritesController;
+use App\Http\Controllers\VerificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,16 +26,27 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']); 
 
 // Animals
-Route::get('/animals', [AnimalController::class, 'index']); 
+
 Route::get('/users', [UserController::class, 'index']); 
 Route::get('/animals/search/{name}', [AnimalController::class, 'search']); 
+
+//email verification
+//Route::get('email/verify/{id}', 'VerificationController@verify')->name('verification.verify'); 
+//Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
+
+Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');  
+Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+
+Route::get('/userVerified/{id}', [UserController::class, 'userVerified']); 
+//
+
 
 // Auth pages where u need to be registered
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Animals
     //Route::post('/animals', [AnimalController::class, 'store']); 
     
-    
+    Route::get('/animals', [AnimalController::class, 'index']); 
     // User
     Route::delete('/logout', [UserController::class, 'logout']); 
 
