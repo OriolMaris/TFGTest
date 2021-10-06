@@ -46,13 +46,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Animals
     //Route::post('/animals', [AnimalController::class, 'store']); 
     
-    Route::get('/animals', [AnimalController::class, 'index']); 
+   
     // User
     Route::delete('/logout', [UserController::class, 'logout']); 
 
 });
 
-
+Route::get('/animals', [AnimalController::class, 'index']); 
+Route::post('/animals/advSearch', [AnimalController::class, 'advSearch']); 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

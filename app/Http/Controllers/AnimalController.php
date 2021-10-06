@@ -145,4 +145,157 @@ class AnimalController extends Controller
     }
 
 
+
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function advSearch(Request $request)
+    {
+        //
+        $allAnimals = Animal::all();
+
+        $advSearch = [];
+
+
+        if ($request->name !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->name === $request->name) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->age !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->age === $request->age) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->race !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->race === $request->race) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        
+        if ($request->city !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->city === $request->city) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->sexe !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->sexe === $request->sexe) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->especie !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->especie === $request->especie) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->caracter !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->caracter === $request->caracter) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->hair_type !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->hair_type === $request->hair_type) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->size !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->size === $request->size) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->castrat !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->castrat === $request->castrat) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->microxip !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->microxip === $request->microxip) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->vacunat !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->vacunat === $request->vacunat) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->desparasitat !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($animal->desparasitat === $request->desparasitat) {
+                    array_push($advSearch, $animal);
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+
+       
+
+        return $allAnimals;
+    }
+
+
 }
