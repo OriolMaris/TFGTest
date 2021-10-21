@@ -193,9 +193,9 @@ class AnimalController extends Controller
         }
 
         
-        if ($request->city !== null) {
+        if ($request->ciutat !== null) {
             foreach ($allAnimals as $animal) {
-                if ($animal->city === $request->city) {
+                if ($animal->ciutat === $request->ciutat) {
                     array_push($advSearch, $animal);
                 }
             }
@@ -215,7 +215,7 @@ class AnimalController extends Controller
 
         if ($request->especie !== null) {
             foreach ($allAnimals as $animal) {
-                if ($animal->especie === $request->especie) {
+                if ($animal->species === $request->especie) {
                     array_push($advSearch, $animal);
                 }
             }
@@ -381,25 +381,25 @@ class AnimalController extends Controller
             $advSearch = [];
         }
 
-        if ($request->carcater !== null) {
+        if ($request->caracter !== null) {
             foreach ($allAnimals as $animal) {
-                if ($request->carcater === 'dinamic') {
-                    if ($animal->carcater === 'Juganer' || $animal->carcater === 'Equilibrado'){
+                if ($request->caracter === 'dinamic') {
+                    if ($animal->caracter === 'Juganer' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
-                else if ($request->carcater === 'independent') {
-                    if ($animal->carcater === 'Independiente' || $animal->carcater === 'Equilibrado'){
+                else if ($request->caracter === 'independent') {
+                    if ($animal->caracter === 'Independiente' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
-                else if ($request->carcater === 'tranquil') {
-                    if ($animal->carcater === 'Docil' || $animal->carcater === 'Equilibrado'){
+                else if ($request->caracter === 'tranquil') {
+                    if ($animal->caracter === 'Docil' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
-                else if ($request->carcater === 'fort') {
-                    if ($animal->carcater === 'Dominante' || $animal->carcater === 'Equilibrado'){
+                else if ($request->caracter === 'fort') {
+                    if ($animal->caracter === 'Dominante' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
@@ -411,12 +411,12 @@ class AnimalController extends Controller
         if ($request->dispo !== null) {
             foreach ($allAnimals as $animal) {
                 if ($request->dispo === 'alta') {
-                    if ($animal->carcater === 'Juganer' || $animal->carcater === 'Dominante' || $animal->carcater === 'Equilibrado'){
+                    if ($animal->caracter === 'Juganer' || $animal->caracter === 'Dominante' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
                 else if ($request->dispo === 'poco') {
-                    if ($animal->carcater === 'Independiente' || $animal->carcater === 'Docil' || $animal->carcater === 'Equilibrado'){
+                    if ($animal->caracter === 'Independiente' || $animal->caracter === 'Docil' || $animal->caracter === 'Equilibrado'){
                         array_push($advSearch, $animal);
                     }
                 }
