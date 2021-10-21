@@ -261,6 +261,11 @@ class AnimalController extends Controller
                 if ($animal->castrat === $request->castrat) {
                     array_push($advSearch, $animal);
                 }
+                if ($request->castrat === 'true') {
+                    if ($animal->castrat) {
+                        array_push($advSearch, $animal);
+                    }
+                }
             }
             $allAnimals = $advSearch;
             $advSearch = [];
