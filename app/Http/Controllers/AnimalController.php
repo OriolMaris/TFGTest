@@ -281,6 +281,16 @@ class AnimalController extends Controller
                 if ($animal->microxip === $request->microxip) {
                     array_push($advSearch, $animal);
                 }
+                if ($request->microxip === 'true') {
+                    if ($animal->microxip) {
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else {
+                    if (!$animal->microxip) {
+                        array_push($advSearch, $animal);
+                    }
+                }
             }
             $allAnimals = $advSearch;
             $advSearch = [];
@@ -288,8 +298,18 @@ class AnimalController extends Controller
 
         if ($request->vacunat !== null) {
             foreach ($allAnimals as $animal) {
-                if ($animal->vacunat === $request->vacunat) {
+                if ($animal->vacunated === $request->vacunat) {
                     array_push($advSearch, $animal);
+                }
+                if ($request->vacunat === 'true') {
+                    if ($animal->vacunated) {
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else {
+                    if (!$animal->vacunated) {
+                        array_push($advSearch, $animal);
+                    }
                 }
             }
             $allAnimals = $advSearch;
@@ -298,8 +318,18 @@ class AnimalController extends Controller
 
         if ($request->desparasitat !== null) {
             foreach ($allAnimals as $animal) {
-                if ($animal->desparasitat === $request->desparasitat) {
+                if ($animal->esterizated === $request->desparasitat) {
                     array_push($advSearch, $animal);
+                }
+                if ($request->desparasitat === 'true') {
+                    if ($animal->esterizated) {
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else {
+                    if (!$animal->esterizated) {
+                        array_push($advSearch, $animal);
+                    }
                 }
             }
             $allAnimals = $advSearch;
