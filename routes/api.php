@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 Route::get('/animals', [AnimalController::class, 'index']); 
 Route::post('/animals/advSearch', [AnimalController::class, 'advSearch']); 
+Route::post('/animals/recomended', [AnimalController::class, 'recomended']); 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

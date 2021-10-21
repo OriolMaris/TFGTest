@@ -160,6 +160,8 @@ class AnimalController extends Controller
         $advSearch = [];
 
 
+
+
         if ($request->name !== null) {
             foreach ($allAnimals as $animal) {
                 if ($animal->name === $request->name) {
@@ -252,7 +254,10 @@ class AnimalController extends Controller
         }
 
         if ($request->castrat !== null) {
+            error_log($request->castrat);
             foreach ($allAnimals as $animal) {
+                error_log($animal->castrat);
+
                 if ($animal->castrat === $request->castrat) {
                     array_push($advSearch, $animal);
                 }
@@ -291,9 +296,95 @@ class AnimalController extends Controller
             $advSearch = [];
         }
 
+        return $allAnimals;
+    }
 
-       
+    public function recomended(Request $request)
+    {
+        //
+        $allAnimals = Animal::all();
 
+        $advSearch = [];
+
+
+        if ($request->age !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($request->age > 60) {
+                    if ($animal->species === 'feline' || ($animal->species === 'cannine' && $animal->size === 'small')){
+                        array_push($advSearch, $animal);
+                    }
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->hab !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($request->hab === 'petita') {
+                    if ($animal->species === 'feline' || ($animal->species === 'cannine' && $animal->size === 'small')){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->hab === 'mitjana') {
+                    if (($animal->species === 'cannine' && $animal->size === 'medium')){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->hab === 'gran') {
+                    if (($animal->species === 'cannine' && $animal->size === 'big')){
+                        array_push($advSearch, $animal);
+                    }
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->carcater !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($request->carcater === 'dinamic') {
+                    if ($animal->carcater === 'Juganer' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->carcater === 'independent') {
+                    if ($animal->carcater === 'Independiente' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->carcater === 'tranquil') {
+                    if ($animal->carcater === 'Docil' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->carcater === 'fort') {
+                    if ($animal->carcater === 'Dominante' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+
+        if ($request->dispo !== null) {
+            foreach ($allAnimals as $animal) {
+                if ($request->dispo === 'alta') {
+                    if ($animal->carcater === 'Juganer' || $animal->carcater === 'Dominante' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+                else if ($request->dispo === 'poco') {
+                    if ($animal->carcater === 'Independiente' || $animal->carcater === 'Docil' || $animal->carcater === 'Equilibrado'){
+                        array_push($advSearch, $animal);
+                    }
+                }
+            }
+            $allAnimals = $advSearch;
+            $advSearch = [];
+        }
+    
         return $allAnimals;
     }
 
